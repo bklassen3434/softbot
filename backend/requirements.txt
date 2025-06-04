@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+openai
+langchain
+langchain-openai
+pydantic-settings
+python-dotenv
+langsmith
+redis
+langchain-community
+sqlalchemy
+psycopg2-binary
+alembic
+
