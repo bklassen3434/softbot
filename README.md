@@ -4,7 +4,16 @@ This repository contains a simple chat application with a FastAPI backend and a 
 
 ## Fine-tuning Qwen on Spider
 
-A script is provided to fine-tune a Qwen model on the Spider text-to-SQL dataset. Prepare your dataset as JSONL files containing `prompt` and `response` fields and run:
+A script is provided to fine-tune a Qwen model on the Spider text-to-SQL dataset.
+The raw Spider files are included under `spider_data/`. Convert them into the
+required JSONL format using `prepare_spider_jsonl.py`:
+
+```bash
+python backend/scripts/prepare_spider_jsonl.py --spider-dir spider_data --output-dir .
+```
+
+This will generate `spider_train.jsonl` and `spider_val.jsonl` containing
+`prompt` and `response` fields. Then run the training script:
 
 ```bash
 python backend/scripts/train_qwen_spider.py \

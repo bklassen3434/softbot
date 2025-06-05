@@ -1,0 +1,19 @@
+# Combined Python dependencies for the project
+# Backend environment mirrors backend/requirements.txt
+fastapi
+uvicorn
+openai
+langchain
+langchain-openai
+pydantic-settings
+python-dotenv
+langsmith
+redis
+langchain-community
+sqlalchemy
+psycopg2-binary
+alembic
+transformers
+datasets
+peft
+accelerate
