@@ -7,3 +7,5 @@ __pycache__/
 *.pyw
 *.pyz
 *.pywz
+spider_data/database/
+spider_data/test_database/
