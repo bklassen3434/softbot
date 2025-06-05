@@ -15,12 +15,16 @@ python backend/scripts/train_qwen_spider.py \
 
 After training, set the `LOCAL_MODEL_PATH` environment variable to the directory that contains the saved model. The backend will automatically load this local model via HuggingFace and use it for query generation instead of OpenAI.
 
-## Testing the Training Script
+## Running Tests
 
-The `backend/scripts/test_train_qwen_spider.py` script runs a minimal training cycle using a dummy dataset. It verifies that the training script completes and produces model files.
+PyTest modules under `tests/` validate the backend components. The training
+script is exercised on a tiny dummy dataset to ensure it runs end-to-end.
+
+Run all tests with:
 
 ```bash
-python backend/scripts/test_train_qwen_spider.py
+pytest -q
 ```
 
-This test requires access to the base Qwen model on HuggingFace and may take several minutes depending on hardware.
+The training test requires access to the base Qwen model on HuggingFace and may
+take several minutes depending on hardware.
