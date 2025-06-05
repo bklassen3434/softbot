@@ -1,6 +1,7 @@
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_openai import ChatOpenAI
+from langchain_community.llms import HuggingFacePipeline
 from langchain.prompts import ChatPromptTemplate
 from langsmith import Client
 from langchain.callbacks.tracers import LangChainTracer
@@ -14,13 +15,27 @@ tracer = LangChainTracer(project_name="softball-chatbot", client=client)
 callback_manager = CallbackManager([tracer])
 
 # LLM setup
-llm = ChatOpenAI(
-    model=settings.MODEL_NAME,
-    temperature=settings.TEMPERATURE,
-    max_tokens=settings.MAX_TOKENS,
-    openai_api_key=settings.OPENAI_API_KEY,
-    callback_manager=callback_manager
-)
+if settings.LOCAL_MODEL_PATH:
+    from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+
+    model = AutoModelForCausalLM.from_pretrained(settings.LOCAL_MODEL_PATH)
+    tokenizer = AutoTokenizer.from_pretrained(settings.LOCAL_MODEL_PATH)
+    text_pipeline = pipeline(
+        "text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        max_new_tokens=settings.MAX_TOKENS,
+        temperature=settings.TEMPERATURE,
+    )
+    llm = HuggingFacePipeline(pipeline=text_pipeline)
+else:
+    llm = ChatOpenAI(
+        model=settings.MODEL_NAME,
+        temperature=settings.TEMPERATURE,
+        max_tokens=settings.MAX_TOKENS,
+        openai_api_key=settings.OPENAI_API_KEY,
+        callback_manager=callback_manager,
+    )
 
 # Prompt
 prompt = ChatPromptTemplate.from_messages([
