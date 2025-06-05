@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     TEMPERATURE: float = 0.7
     MAX_TOKENS: int = 512
 
+    LOCAL_MODEL_PATH: str | None = None
+
     REDIS_URL: str = "redis://redis:6379"
     DATABASE_URL: str = "postgresql://postgres:postgres@postgres:5432/softball_db"
 

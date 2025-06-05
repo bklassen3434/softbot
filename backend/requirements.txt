@@ -11,4 +11,8 @@ langchain-community
 sqlalchemy
 psycopg2-binary
 alembic
+transformers
+datasets
+peft
+accelerate
 
