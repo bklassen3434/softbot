@@ -17,8 +17,8 @@ This will generate `spider_train.jsonl` and `spider_val.jsonl` containing
 
 ```bash
 python backend/scripts/train_qwen_spider.py \
-    --train-file spider_train.jsonl \
-    --val-file spider_val.jsonl \
+    --train-file data/spider_train.jsonl \
+    --val-file data/spider_val.jsonl \
     --output-dir qwen_spider_finetuned
 ```
 

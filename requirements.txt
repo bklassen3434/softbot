@@ -1,5 +1,3 @@
-# Combined Python dependencies for the project
-# Backend environment mirrors backend/requirements.txt
 fastapi
 uvicorn
 openai
@@ -17,3 +15,6 @@ transformers
 datasets
 peft
 accelerate
+einops
+transformers_stream_generator
+huggingface_hub[hf_xet]

@@ -17,8 +17,8 @@ def load_data(train_file: str, val_file: str):
 def main(args):
     global tokenizer
     model_name = args.model_name
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
 
     tokenized_ds = load_data(args.train_file, args.val_file)
 
