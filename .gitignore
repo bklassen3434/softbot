@@ -1,0 +1,41 @@
+# env
+.env
+.env.*.local
+
+# node junk
+node_modules/
+dist/
+build/
+.next/
+.out/
+*.log
+
+# python junk
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+
+# models & big artifacts
+**/checkpoints/
+**/exports/
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.gguf
+model-*-of-*
+tokenizer.json
+tokenizer_config.json
+special_tokens_map.json
+generation_config.json
+ModelFile
+models/*
+!models/.gitkeep
+
+# os/ide
+.DS_Store
+.vscode/
+.idea/
