@@ -1,31 +1,34 @@
-Full-stack app for uploading softball pitch data and asking questions via LLM → SQL.  
-Stack: **React (Vite+TS)** + **FastAPI** + **Postgres** (Docker) + **OpenAI-compatible** LLM (e.g., LLama3-8B).
+# Softball Pitch Q&A App
+
+Full-stack app for uploading softball pitch data and asking questions via **LLM → SQL**.
+
+**Tech stack:**  
+**React (Vite + TypeScript)** • **FastAPI** • **Postgres (Docker)** • **OpenAI-compatible LLM** (e.g. LLaMA 3-8B via [Ollama](https://ollama.com/)).
 
 ---
 
-## Repo layout
+## 📂 Repository Layout
 
 .
-├─ backend/ # FastAPI app, SQL validator, safe SQL templates
-├─ frontend/ # React app (Vite + TypeScript)
-├─ models/ # local model weights/configs for Ollama
+├─ backend/            # FastAPI app, SQL validator, safe SQL templates
+├─ frontend/           # React app (Vite + TypeScript)
+├─ models/             # Local model weights/configs for Ollama
 ├─ docker-compose.yml
 └─ README.md
 
 
 ---
 
-## Prereqs
+## ⚙️ Prerequisites
 
-- Docker Desktop (or Docker + Compose)
-- Node.js ≥ 18 (for local FE dev)
-- Local LLM server (Ollama with OpenAI-compatible `/v1`)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) (or Docker + Compose)
+- [Node.js](https://nodejs.org/) **≥ 18** (for local frontend development)
+- Local LLM server: [Ollama](https://ollama.com/) with **OpenAI-compatible `/v1`** endpoint
 
 ---
 
-## Quickstart
+## 🚀 Quickstart
 
-```bash
 docker compose up --build
 
 Open:
@@ -36,7 +39,7 @@ API: http://localhost:8000/health
 
 ---
 
-Env (API)
+## 🛠 Environment Variables (API)
 
 Set in docker-compose.yml → services.api.environment:
 
@@ -54,7 +57,7 @@ LLM_RATE_WINDOW_SEC (default 3600)
 
 ---
 
-CSV format
+## 📄 CSV Upload Format
 
 Headers must be exact:
 
@@ -67,7 +70,7 @@ curl -X POST http://localhost:8000/pitches/upload-csv \
 
 ---
 
-Key endpoints
+## 🔑 Key API Endpoints
 
 GET /health
 
@@ -77,7 +80,7 @@ POST /sql/freeform/ask (LLM writes SQL → validator → execute; rate-limited)
 
 ---
 
-CURL example
+## Example: Ask a Question
 
 curl -sS -X POST http://localhost:8000/sql/freeform/ask \
   -H "Content-Type: application/json" \
@@ -85,7 +88,7 @@ curl -sS -X POST http://localhost:8000/sql/freeform/ask \
 
 ---
 
-Troubleshooting
+## 🩹 Troubleshooting
 
 CORS: ensure backend allows http://localhost:5173
 
@@ -94,4 +97,3 @@ CORS: ensure backend allows http://localhost:5173
 Upload 400: check headers / size / row caps
 
 Freeform 400: validator blocked joins/subqueries/unsupported functions
-
