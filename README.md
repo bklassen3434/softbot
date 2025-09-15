@@ -1,4 +1,4 @@
-# Softball Pitch Q&A App
+# Sofbot
 
 Full-stack app for uploading softball pitch data and asking questions via **LLM → SQL**.
 
