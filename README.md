@@ -9,12 +9,13 @@ Full-stack app for uploading softball pitch data and asking questions via **LLM 
 
 ## 📂 Repository Layout
 
-.
-├─ backend/            # FastAPI app, SQL validator, safe SQL templates
-├─ frontend/           # React app (Vite + TypeScript)
-├─ models/             # Local model weights/configs for Ollama
-├─ docker-compose.yml
-└─ README.md
+| Path                | Description |
+|---------------------|------------|
+| **backend/**        | FastAPI app, SQL validator, safe SQL templates |
+| **frontend/**       | React app (Vite + TypeScript) |
+| **models/**         | Local model weights/configs for Ollama |
+| **docker-compose.yml** | Docker Compose configuration |
+| **README.md**       | Project documentation |
 
 
 ---
