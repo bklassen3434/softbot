@@ -30,13 +30,13 @@ Full-stack app for uploading softball pitch data and asking questions via **LLM 
 
 ## 🚀 Quickstart
 
+```bash
 docker compose up --build
+```
 
 Open:
-
-Frontend: http://localhost:5173
-
-API: http://localhost:8000/health
+- Frontend: http://localhost:5173
+- API: http://localhost:8000/health
 
 ---
 
@@ -44,17 +44,12 @@ API: http://localhost:8000/health
 
 Set in docker-compose.yml → services.api.environment:
 
-DATABASE_URL (defaults to Compose Postgres)
-
-LLM_BASE_URL (e.g. http://host.docker.internal:11434/v1 for Ollama)
-
-LLM_MODEL_NAME
-
-LLM_API_KEY (if required)
-
-LLM_RATE_MAX (default 30)
-
-LLM_RATE_WINDOW_SEC (default 3600)
+- DATABASE_URL (defaults to Compose Postgres)
+- LLM_BASE_URL (e.g. http://host.docker.internal:11434/v1 for Ollama)
+- LLM_MODEL_NAME
+- LLM_API_KEY (if required)
+- LLM_RATE_MAX (default 30)
+- LLM_RATE_WINDOW_SEC (default 3600)
 
 ---
 
