@@ -38,6 +38,11 @@ Open:
 - Frontend: http://localhost:5173
 - API: http://localhost:8000/health
 
+<p align="center">
+  <img src="assets/app.png" alt="App Screenshot" width="300">
+</p>
+
+
 ---
 
 ## 🛠 Environment Variables (API)
