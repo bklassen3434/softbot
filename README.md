@@ -38,6 +38,8 @@ Open:
 - Frontend: http://localhost:5173
 - API: http://localhost:8000/health
 
+---
+
 ## 💻 Interface Overview
 
 <p align="center">
