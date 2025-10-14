@@ -39,7 +39,7 @@ Open:
 - API: http://localhost:8000/health
 
 <p align="center">
-  <img src="assets/app.png" alt="App Screenshot" width="300">
+  <img src="app.png" alt="App Screenshot" width="300">
 </p>
 
 
